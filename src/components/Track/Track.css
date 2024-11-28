@@ -1,0 +1,47 @@
+.Track {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 5px;
+    border-bottom: 1px solid;
+  }
+  
+  .Track:last-child {
+    margin-bottom: 0; 
+  }
+
+  .Track-information{
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+    align-items: flex-start;
+  }
+
+  h3{
+    margin-top: 5px;
+    font-size: 1.5em;
+    text-align: start;
+  }
+
+  h4{
+    margin-top: 5px;
+    font-size: 1.3em;
+  }
+
+  p{
+    margin-top: 5px;
+    font-size: 1em;
+  }
+
+  .Track-action{
+    margin-top: 5%;
+    margin-left: 40px;
+    border-radius: 50%;
+    height:40px;
+    width: 40px;
+    font-size: 30px;
+    border: none;
+    font-family: "Comic Neue";
+    font-style: normal;
+    display: flex;
+    justify-content: center;
+  }

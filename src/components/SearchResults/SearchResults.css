@@ -1,0 +1,25 @@
+h2{
+    color: #FFD700;
+    font-size: 35px;
+    padding: 0.5em;
+}
+
+.SearchResults {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.SearchResults {
+    margin-top: 30px;
+    width: 40%;
+    height: 550px;
+    display: flex;
+    padding: 2rem;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  ::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}

@@ -1,0 +1,7 @@
+.TrackList{
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    margin-top: 30px;
+    width: 100%;
+};

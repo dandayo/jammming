@@ -1,0 +1,45 @@
+.Playlist{
+    margin-top: 30px;
+    width: 40%;
+    height: 550px;
+    display: flex;
+    padding: 2rem;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Playlist input{
+    padding: 0.4em;
+    border: 1px solid #DDD5D7;
+    font-size: 35px;
+    text-align: center;
+    outline: none;
+    transition: color 0.3s ease, border-color 0.3s ease;
+    color: #FFD700;
+}
+
+.Playlist h2{
+    color: #FFD700;
+}
+
+.Playlist input::placeholder{
+    color: #4D0013;
+}
+
+.Playlist-save {
+        cursor: pointer;
+        margin-top: 2rem;
+        width: 50%;
+        height: 60px;
+        background-color: #FFCCD2;
+        outline: none;
+        color: #4D0013;
+        text-align: center;
+        font-size: 1.1em;
+        border-radius: 4px;
+    };
+    
+.Playlist-save:hover{
+        background-color: #a60027;
+        
+    };
