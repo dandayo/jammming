@@ -52,6 +52,12 @@
     box-shadow: inset 0px 0px 15px rgba(255, 195, 0, 0.5);
 }
 
+.PlaylistSelector ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
 .PlaylistSelector li {
     padding: 5px;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
