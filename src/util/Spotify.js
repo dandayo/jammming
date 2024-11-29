@@ -1,7 +1,7 @@
 const clientId = 'ee12908a55c842ce93ae53fca4f370a7'; 
 const redirectUri = window.location.href.includes("localhost") 
   ? 'http://localhost:3000/' 
-  : 'https://sunny-mooncake-a46dd6.netlify.app';
+  : 'https://dandajam.netlify.app/';
 let accessToken;
 
 const Spotify = {
