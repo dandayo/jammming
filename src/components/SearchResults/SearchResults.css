@@ -1,13 +1,13 @@
 .SearchResults {
-    margin-top: 50px;
+    margin-top: 30px;
     width: 40%;
-    height: 550px;
+    height: 650px;
     display: flex;
     padding: 2rem;
     flex-direction: column;
-    text-align: center;
     align-items: center;
     overflow: hidden;
+    overflow-y: scroll;   
 }
 
 .SearchResults h2 {
@@ -15,12 +15,6 @@
     font-size: 35px;
     padding: 0.5em;
     font-weight: bold;
-}
-
-.SearchResults .TrackList {
-    width: 100%;
-    height: calc(100% - 80px);
-    overflow-y: auto;
 }
   
 ::-webkit-scrollbar {
