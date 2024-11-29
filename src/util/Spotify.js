@@ -1,5 +1,5 @@
 const clientId = 'ee12908a55c842ce93ae53fca4f370a7'; 
-const redirectUri = 'http://localhost:3000/';
+const redirectUri = 'http://localhost:3000/' || 'https://dandayo.github.io/jammming/';
 let accessToken;
 
 const Spotify = {
