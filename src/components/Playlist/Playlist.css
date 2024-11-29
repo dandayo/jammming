@@ -8,6 +8,8 @@
     align-items: center;
 }
 
+
+
 .Playlist input{
     padding: 0.4em;
     border: 1px solid #DDD5D7;
@@ -16,6 +18,10 @@
     outline: none;
     transition: color 0.3s ease, border-color 0.3s ease;
     color: #FFD700;
+}
+
+.Playlist input::placeholder{
+    color: #4D0013;
 }
 
 .Playlist h2{

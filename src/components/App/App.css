@@ -31,6 +31,11 @@ h1{
   align-items: center; 
 }
 
+.PlaylistNameForm input:hover {
+  border: 1px solid #FFD700;
+  box-shadow: 0px 0px 15px rgba(255, 195, 0, 0.5);
+}
+
 .PlaylistNameForm input {
   padding: 10px;
   font-size: 16px;
@@ -48,6 +53,7 @@ h1{
 .PlaylistNameForm input::placeholder{
   color: #4D0013;
 }
+
 
 .Playlists{
   margin-top: 30px;
