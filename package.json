@@ -7,6 +7,7 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "gh-pages": "^6.2.0",
     "react-scripts": "5.0.1"
   },
   "scripts": {
@@ -20,5 +21,10 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "homepage": "https://github.com/dandayo/jammming",
+  "scripts": {
+    "predeploy": "npm run build",
+  "deploy": "gh-pages -d build"
+}
 }
