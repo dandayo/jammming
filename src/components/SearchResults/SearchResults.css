@@ -1,16 +1,21 @@
 .SearchResults {
     margin-top: 30px;
-    width: 40% !important;
-    height: 650px;
+    width: 40%;
+    height: 550px;
     display: flex;
     padding: 2rem;
     flex-direction: column;
     align-items: center;
     overflow: hidden;
-    overflow-y: scroll;   
+}
+
+.SearchResults .TrackList {
+    width: 100%;
+    overflow-y: scroll;
 }
 
 .SearchResults h2 {
+    text-align: center;
     color: #FFD700 !important;
     font-size: 35px;
     padding: 0.5em;
