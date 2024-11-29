@@ -1,14 +1,3 @@
-.SearchResults-title {
-    color: #FFD700;
-    font-size: 35px;
-    padding: 0.5em;
-}
-
-.SearchResults h2 {
-    color: #FFD700; 
-    font-size: 35px;
-    padding: 0.5em;
-}
 
 .SearchResults {
     margin-top: 50px;
@@ -19,7 +8,14 @@
     flex-direction: column;
     text-align: center;
     align-items: center;
-  }
+}
+
+.SearchResults h2 {
+    color: #FFD700 !important;
+    font-size: 35px;
+    padding: 0.5em;
+    font-weight: bold;
+}
   
   ::-webkit-scrollbar {
     width: 0px;
