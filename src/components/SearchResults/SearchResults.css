@@ -1,17 +1,11 @@
 .SearchResults {
-    margin-top: 30px;
     width: 40%;
-    height: 550px;
-    display: flex;
+    height: 850px;
     padding: 2rem;
+    display: flex;
     flex-direction: column;
     align-items: center;
     overflow: hidden;
-}
-
-.SearchResults .TrackList {
-    width: 100%;
-    overflow-y: scroll;
 }
 
 .SearchResults h2 {
@@ -20,6 +14,12 @@
     font-size: 35px;
     padding: 0.5em;
     font-weight: bold;
+}
+
+.SearchResults .TrackList {
+    width: 100%;
+    height: calc(100% - 100px);
+    overflow-y: scroll;
 }
   
 ::-webkit-scrollbar {
