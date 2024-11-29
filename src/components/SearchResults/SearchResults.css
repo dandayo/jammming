@@ -4,18 +4,20 @@
     padding: 0.5em;
 }
 
-.SearchResults {
-    margin-top: 50px;
-    text-align: center;
+.SearchResults h2 {
+    color: #FFD700; 
+    font-size: 35px;
+    padding: 0.5em;
 }
 
 .SearchResults {
-    margin-top: 30px;
+    margin-top: 50px;
     width: 40%;
     height: 550px;
     display: flex;
     padding: 2rem;
     flex-direction: column;
+    text-align: center;
     align-items: center;
   }
   
