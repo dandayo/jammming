@@ -20,7 +20,7 @@ h1{
   display: flex;
   flex-direction: row;
   align-items: flex-start; 
-  justify-content: space-between;
+  justify-content: space-evenly;
   margin-top: 20px;
 }
 
@@ -49,3 +49,12 @@ h1{
   color: #4D0013;
 }
 
+.Playlists{
+  margin-top: 30px;
+  width: 40%;
+  height: 550px;
+  display: flex;
+  padding: 2rem;
+  flex-direction: column;
+  align-items: center;
+}

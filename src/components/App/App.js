@@ -150,6 +150,7 @@ const App = () => {
           />
         <div className="AppPlaylist">
           <SearchResults searchResults={searchResults} onAdd={addTrack} />
+          <div className="Playlists">
           <div className="PlaylistNameForm">
           <input
             type="text"
@@ -164,6 +165,7 @@ const App = () => {
             onSave={savePlaylist}
             buttonText={playlistTracks.length === 0 ? "Delete" : "Save to Spotify"}
           />
+          </div>
         </div>
       </div>
     </div>
