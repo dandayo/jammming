@@ -19,22 +19,26 @@ const PlaylistSelector = ({ playlists, onSelect, selectedPlaylistId, onCreateNew
 
   return (
     <div className="PlaylistSelector">
-      <button className="CreateNew" onClick={onCreateNew}>
-        Create New Playlist
-      </button>
-      <h3>Your Playlists</h3>
+      <h2>Your Playlists</h2>
       <ul>
         {playlists && playlists.map((playlist) => (
           <li
             key={playlist.id}
             className="PlaylistSelectorItem"
             onClick={() => onSelect(playlist.id)}
-            style={{ fontWeight: playlist.id === selectedPlaylistId ? "bold" : "normal" }}
+            style={{ 
+              fontWeight: playlist.id === selectedPlaylistId ? "bold" : "normal",
+              color: playlist.id === selectedPlaylistId ? "#FFD700" : "inherit" 
+            }}
           >
             {playlist.name}
           </li>
         ))}
       </ul>
+      <h4>Or</h4>
+      <button className="CreateNew" onClick={onCreateNew}>
+        Create New Playlist
+      </button>
     </div>
   );
 };

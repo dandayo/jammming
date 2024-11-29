@@ -1,47 +1,81 @@
 .Track {
-    display: flex;
-    justify-content: space-between;
-    padding-bottom: 5px;
-    border-bottom: 1px solid;
-  }
-  
-  .Track:last-child {
-    margin-bottom: 0; 
-  }
+  display: flex;
+  justify-content: space-evenly;
+  padding-bottom: 5px;
+  border-bottom: 1px solid;
+  align-items: center; 
+  overflow: visible; 
+}
 
-  .Track-information{
-    display: flex;
-    flex-direction: column;
-    margin-top: 15px;
-    align-items: flex-start;
-  }
+.Track-information:hover {
+  transform: scale(1.01);
+  z-index: 999;
+  transform-origin: center center;
+}
 
-  h3{
-    margin-top: 5px;
-    font-size: 1.5em;
-    text-align: start;
-  }
+.Track:last-child {
+  margin-bottom: 0; 
+}
 
-  h4{
-    margin-top: 5px;
-    font-size: 1.3em;
-  }
+.Track-information {
+  display: flex;
+  flex-direction: column;
+  margin-top: 15px;
+  align-items: flex-start;
+  width: 90%;
+  padding-left: 10px;
+}
 
-  p{
-    margin-top: 5px;
-    font-size: 1em;
-  }
+h3, h4, p {
+  margin-top: 5px;
+}
 
-  .Track-action{
-    margin-top: 5%;
-    margin-left: 40px;
-    border-radius: 50%;
-    height:40px;
-    width: 40px;
-    font-size: 30px;
-    border: none;
-    font-family: "Comic Neue";
-    font-style: normal;
-    display: flex;
-    justify-content: center;
-  }
+.Track-information h3{
+  margin-top: 5px;
+  font-size: 1.5em;
+  text-align: start;
+}
+
+.Track-information h4{
+  margin-top: 5px;
+  font-size: 1.3em;
+}
+
+.Track-information p{
+  margin-top: 5px;
+  font-size: 1em;
+}
+
+.Track-action {
+  margin-top: 15px;
+  height: 40px;
+  width: 40px;
+  font-size: 30px;
+  background-color: #FFCCD2;
+  border-radius: 50%;
+  box-sizing: border-box;
+  border: none;
+  font-family: "Comic Neue";
+  font-style: normal;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  margin-left: 18px;
+  margin-right: 18px;
+  transition: transform 0.2s ease; 
+  transform-origin: center center;
+}
+
+.Track-action:hover {
+  transform: scale(1.1); 
+  border: 1px solid #FFD700;
+  box-shadow: 0px 0px 15px rgba(255, 195, 0, 0.5);
+  z-index: 1000; 
+  transform-origin: left 50% left 20%;
+}
+
+.Track-action:active {
+  background-color: #ffee90;
+  border: 1px solid #FFD700;
+  box-shadow: 0px 0px 30px rgba(255, 196, 0, 0.209);
+}

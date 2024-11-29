@@ -26,6 +26,11 @@
     color: #4D0013;
 }
 
+.Playlist-save:hover {
+    border: 1px solid #FFD700;
+    box-shadow: 0px 0px 15px rgba(255, 195, 0, 0.5);
+}
+
 .Playlist-save {
         cursor: pointer;
         margin-top: 2rem;
@@ -39,7 +44,3 @@
         border-radius: 4px;
     };
     
-.Playlist-save:hover{
-        background-color: #a60027;
-        
-    };

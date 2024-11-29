@@ -141,21 +141,22 @@ const App = () => {
       </h1>
       <div className="App">
         <SearchBar onSearch={search} />
-        <div className="PlaylistNameForm">
+
+        <PlaylistSelector
+            playlists={playlists} 
+            onSelect={handleSelectPlaylist}
+            selectedPlaylistId={selectedPlaylistId}
+            onCreateNew={createNewPlaylist}
+          />
+        <div className="AppPlaylist">
+          <SearchResults searchResults={searchResults} onAdd={addTrack} />
+          <div className="PlaylistNameForm">
           <input
             type="text"
             onChange={(e) => updatePlaylistName(e.target.value)}
             placeholder="Enter playlist name"
           />
         </div>
-        <div className="AppPlaylist">
-          <SearchResults searchResults={searchResults} onAdd={addTrack} />
-          <PlaylistSelector
-            playlists={playlists}  // Передаем актуализированный список плейлистов
-            onSelect={handleSelectPlaylist}
-            selectedPlaylistId={selectedPlaylistId}
-            onCreateNew={createNewPlaylist}
-          />
           <Playlist
             playlistName={playlistName}
             playlistTracks={playlistTracks}
