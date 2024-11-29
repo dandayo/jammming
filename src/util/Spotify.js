@@ -1,5 +1,5 @@
 const clientId = 'ee12908a55c842ce93ae53fca4f370a7'; 
-const redirectUri = window.location.hostname === 'localhost' 
+const redirectUri = window.location.href.includes("localhost") 
   ? 'http://localhost:3000/' 
   : 'https://dandayo.github.io/jammming/';
 let accessToken;
@@ -8,30 +8,20 @@ const Spotify = {
   // Получение токена доступа
   getAccessToken() {
     if (accessToken) {
-      console.log('Token already available:', accessToken); // Debugging line
       return accessToken;
     }
-
-    
 
     const accessTokenMatch = window.location.href.match(/access_token=([^&]*)/);
     const expiresInMatch = window.location.href.match(/expires_in=([^&]*)/);
     if (accessTokenMatch && expiresInMatch) {
       accessToken = accessTokenMatch[1];
       const expiresIn = Number(expiresInMatch[1]);
-      console.log('Access token obtained:', accessToken); // Debugging line
-      console.log('Token expires in:', expiresIn, 'seconds'); // Debugging line
-      window.setTimeout(() => {
-        accessToken = ''; // Token will expire
-        console.log('Token expired, clearing token'); // Debugging line
-      }, expiresIn * 1000);
-      
-      window.history.pushState('Access Token', null, '/');
+      window.setTimeout(() => accessToken = '', expiresIn * 1000);
+      window.history.pushState('Access Token', null, '/'); 
       return accessToken;
     } else {
       const accessUrl = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirectUri}`;
       window.location = accessUrl;
-      return null;
     }
   },
 
