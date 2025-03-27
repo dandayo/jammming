@@ -1,5 +1,6 @@
 .SearchResults {
-    width: 40%;
+    width: 45%;
+    min-width: 400px;
     height: 850px;
     padding: 2rem;
     display: flex;
@@ -9,6 +10,7 @@
 }
 
 .SearchResults h2 {
+    width: 100%;
     text-align: center;
     color: #FFD700 !important;
     font-size: 35px;
@@ -20,6 +22,7 @@
     width: 100%;
     height: calc(100% - 100px);
     overflow-y: scroll;
+    padding: 0 1rem;
 }
   
 ::-webkit-scrollbar {

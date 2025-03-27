@@ -8,8 +8,6 @@
     align-items: center;
 }
 
-
-
 .Playlist input{
     padding: 0;
     border: 1px solid #DDD5D7;
@@ -25,9 +23,11 @@
 }
 
 .Playlist h2{
+    width: 100%;
     color: #FFD700;
     font-size: 2em;
     text-align: center;
+    margin-bottom: 1rem;
 }
 
 .Playlist input::placeholder{
@@ -42,8 +42,8 @@
 .Playlist-save {
     cursor: pointer;
     margin-top: 2rem;
-    height: 50px;
     width: 300px;
+    height: 50px;
     background-color: #FFCCD2;
     outline: none;
     color: #4D0013;
@@ -51,4 +51,11 @@
     font-size: 1.3em;
     border-radius: 4px;
     border: 2px solid #FFF8F0;
-    }
+}
+
+.Playlist .TrackList {
+    width: 100%;
+    height: calc(100% - 150px);
+    overflow-y: scroll;
+    padding: 0 1rem;
+}

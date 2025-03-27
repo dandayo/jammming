@@ -1,8 +1,27 @@
 .TrackList {
     display: flex;
     flex-direction: column;
-    margin-top: 30px;
     width: 100%;
-    overflow: hidden;
-    overflow-y: scroll;  
+    overflow-y: scroll;
+    padding: 0.5rem;
+    gap: 0.5rem;
+}
+
+/* Стилизация скроллбара для всех компонентов */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 215, 0, 0.3);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 215, 0, 0.5);
 }
