@@ -18,20 +18,12 @@
     color: #FFD700;
 }
 
-.Playlist input::placeholder{
-    color: #4D0013;
-}
-
 .Playlist h2{
     width: 100%;
     color: #FFD700;
     font-size: 2em;
     text-align: center;
     margin-bottom: 1rem;
-}
-
-.Playlist input::placeholder{
-    color: #4D0013;
 }
 
 .Playlist-save:hover {

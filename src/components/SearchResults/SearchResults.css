@@ -24,8 +24,3 @@
     overflow-y: scroll;
     padding: 0 1rem;
 }
-  
-::-webkit-scrollbar {
-    width: 0px;
-    background: transparent;
-}
