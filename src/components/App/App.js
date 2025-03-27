@@ -6,6 +6,7 @@ import SearchBar from "../SearchBar/SearchBar";
 import SearchResults from "../SearchResults/SearchResults";
 import Spotify from "../../util/Spotify";
 import PlaylistSelector from "../PlaylistSelector/PlaylistSelector";
+import LoginScreen from '../LoginScreen/LoginScreen';
 
 const App = () => {
   const [searchResults, setSearchResults] = useState([]);
@@ -13,33 +14,32 @@ const App = () => {
   const [playlistTracks, setPlaylistTracks] = useState([]);
   const [selectedPlaylistId, setSelectedPlaylistId] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-  const [playlists, setPlaylists] = useState([]); 
+  const [playlists, setPlaylists] = useState([]);
+  const [showPlaylistSection, setShowPlaylistSection] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-
-// Метод для получения плейлистов
+  // Метод для получения плейлистов
   const fetchPlaylists = () => {
     Spotify.getUserPlaylists()
       .then((fetchedPlaylists) => setPlaylists(fetchedPlaylists)) // Обновляем состояние
       .catch((error) => console.error("Error fetching playlists:", error));
   };
 
-  // Вызов метода fetchPlaylists при загрузке компонента
-  useEffect(() => {
-    fetchPlaylists();
-  }, []);
-
   // Проверка аутентификации
   const checkAuthentication = () => {
     const token = Spotify.getAccessToken();
-    if (!token) {
-      console.log("No token available.");
-    } else {
-      console.log("Token is available.");
+    if (token) {
+      setIsAuthenticated(true);
+      fetchPlaylists();
     }
   };
 
+  // Эффект для проверки токена при загрузке и после редиректа
   useEffect(() => {
-    checkAuthentication();
+    // Проверяем, есть ли токен в URL (после редиректа от Spotify)
+    if (window.location.href.includes('access_token')) {
+      checkAuthentication();
+    }
   }, []);
 
   // Добавление трека в плейлист
@@ -65,11 +65,13 @@ const App = () => {
     setSelectedPlaylistId(null);
     setPlaylistName("New Playlist");
     setPlaylistTracks([]);
+    setShowPlaylistSection(true);
   };
 
   // Выбор существующего плейлиста
   const handleSelectPlaylist = (playlistId) => {
     setSelectedPlaylistId(playlistId);
+    setShowPlaylistSection(true);
     Spotify.getPlaylist(playlistId)
       .then((playlist) => {
         setPlaylistName(playlist.name);
@@ -129,45 +131,74 @@ const App = () => {
   };
   
 
-  // Поиск треков
+
   const search = (term) => {
-    Spotify.search(term).then((results) => setSearchResults(results));
+    if (!term.trim()) {
+      return;
+    }
+    setIsLoading(true);
+    Spotify.search(term)
+      .then((results) => {
+        setSearchResults(results);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        console.error('Search failed:', error);
+        setIsLoading(false);
+        // You might want to add error state and display it to the user
+      });
+  };
+
+  // Обработчик клика по кнопке логина
+  const handleLogin = () => {
+    Spotify.initiateLogin(); // Используем новый метод вместо getAccessToken
   };
 
   return (
     <div>
-      <h1>
-        Ja<span className="highlight">mmm</span>ing
-      </h1>
-      <div className="App">
-        <SearchBar onSearch={search} />
-
-        <PlaylistSelector
-            playlists={playlists} 
-            onSelect={handleSelectPlaylist}
-            selectedPlaylistId={selectedPlaylistId}
-            onCreateNew={createNewPlaylist}
-          />
-        <div className="AppPlaylist">
-          <SearchResults searchResults={searchResults} onAdd={addTrack} />
-          <div className="Playlists">
-          <div className="PlaylistNameForm">
-          <input
-            type="text"
-            onChange={(e) => updatePlaylistName(e.target.value)}
-            placeholder="Enter playlist name"
-          />
-        </div>
-          <Playlist
-            playlistName={playlistName}
-            playlistTracks={playlistTracks}
-            onRemove={removeTrack}
-            onSave={savePlaylist}
-            buttonText={playlistTracks.length === 0 ? "Delete" : "Save to Spotify"}
-          />
+      {!isAuthenticated ? (
+        <LoginScreen onLoginClick={handleLogin} />
+      ) : (
+        <div>
+          <h1>
+            Ja<span className="highlight">mmm</span>ing
+          </h1>
+          <div className="App">
+            {isLoading && <div className="loading-overlay">Loading...</div>}
+            <PlaylistSelector
+              playlists={playlists} 
+              onSelect={handleSelectPlaylist}
+              selectedPlaylistId={selectedPlaylistId}
+              onCreateNew={createNewPlaylist}
+            />
+            {showPlaylistSection && (
+              <>
+                <SearchBar onSearch={search} />
+                <div className="AppPlaylist">
+                  <SearchResults searchResults={searchResults} onAdd={addTrack} />
+                  <div className="Playlists">
+                    <div className="PlaylistNameForm">
+                      <input
+                        type="text"
+                        value={playlistName}
+                        onChange={(e) => updatePlaylistName(e.target.value)}
+                        placeholder="Enter playlist name"
+                      />
+                    </div>
+                    <Playlist
+                      playlistName={playlistName}
+                      playlistTracks={playlistTracks}
+                      onRemove={removeTrack}
+                      onSave={savePlaylist}
+                      buttonText={playlistTracks.length === 0 ? "Delete" : "Save to Spotify"}
+                    />
+                  </div>
+                </div>
+              </>
+            )}
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };
