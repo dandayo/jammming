@@ -143,9 +143,57 @@ h1 {
   position: relative;
 }
 
+/* Добавляем фоновые тексты */
+.content-section::before,
+.content-section::after,
+.content-section .background-text {
+  content: 'JAMMING';
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 300px;
+  color: rgba(255, 111, 0, 0.063);
+  white-space: nowrap;
+  z-index: -1;
+  font-weight: bold;
+  letter-spacing: 20px;
+  pointer-events: none;
+}
+
+.content-section::before {
+  content: 'JAMMING';
+  top: 25%; /* Верхняя надпись */
+}
+
+.content-section::after {
+  content: 'JAMMING';
+  color: rgba(93, 0, 255, 0.063);
+  top: 75%; /* Нижняя надпись */
+}
+
+
 .content-section.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Адаптивность для фоновых текстов */
+@media screen and (max-width: 1024px) {
+  .content-section::before,
+  .content-section::after,
+  .content-section .background-text {
+    font-size: 150px;
+    letter-spacing: 15px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .content-section::before,
+  .content-section::after,
+  .content-section .background-text {
+    font-size: 100px;
+    letter-spacing: 10px;
+  }
 }
 
 /* Планшеты */
