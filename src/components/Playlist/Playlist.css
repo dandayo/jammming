@@ -59,3 +59,26 @@
     overflow-y: scroll;
     padding: 0 1rem;
 }
+
+@media screen and (max-width: 1024px) {
+  .Playlist {
+    height: auto;
+    min-height: 500px;
+  }
+
+  .Playlist-save {
+    width: 80%;
+    margin-bottom: 1rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .Playlist h2 {
+    font-size: 1.5em;
+  }
+
+  .Playlist-save {
+    width: 90%;
+    font-size: 1em;
+  }
+}

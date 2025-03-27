@@ -17,6 +17,7 @@ const App = () => {
   const [playlists, setPlaylists] = useState([]);
   const [showPlaylistSection, setShowPlaylistSection] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [contentVisible, setContentVisible] = useState(false);
 
   // Метод для получения плейлистов
   const fetchPlaylists = () => {
@@ -40,6 +41,20 @@ const App = () => {
     if (window.location.href.includes('access_token')) {
       checkAuthentication();
     }
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const windowHeight = window.innerHeight;
+      
+      if (scrollPosition > windowHeight * 0.3) { // Показываем контент после 30% скролла
+        setContentVisible(true);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   // Добавление трека в плейлист
@@ -159,11 +174,24 @@ const App = () => {
       {!isAuthenticated ? (
         <LoginScreen onLoginClick={handleLogin} />
       ) : (
-        <div>
-          <h1>
-            Ja<span className="highlight">mmm</span>ing
-          </h1>
-          <div className="App">
+        <div className="App">
+          <div className="title-section">
+            <div className="title-container">
+              <h1>Ja<span className="highlight">mmm</span>ing</h1>
+              <h1>Ja<span className="highlight">mmm</span>ing</h1>
+              <h1>Ja<span className="highlight">mmm</span>ing</h1>
+              <h1>Ja<span className="highlight">mmm</span>ing</h1>
+              <h1>Ja<span className="highlight">mmm</span>ing</h1>
+              <h1>Ja<span className="highlight">mmm</span>ing</h1>
+              <h1>Ja<span className="highlight">mmm</span>ing</h1>
+              <h1>Ja<span className="highlight">mmm</span>ing</h1>
+              <h1>Ja<span className="highlight">mmm</span>ing</h1>
+              <h1>Ja<span className="highlight">mmm</span>ing</h1>
+              <h1>Ja<span className="highlight">mmm</span>ing</h1>
+              <h1>Ja<span className="highlight">mmm</span>ing</h1>
+            </div>
+          </div>
+          <div className={`content-section ${contentVisible ? 'visible' : ''}`}>
             {isLoading && <div className="loading-overlay">Loading...</div>}
             <PlaylistSelector
               playlists={playlists} 

@@ -23,6 +23,7 @@
     margin-bottom: 10px;
     border-bottom: 1px solid;
     text-align: center;
+    border-radius: 3px;
 }   
 
 .PlaylistSelector h4 {
@@ -41,6 +42,7 @@
     font-size: 1.1em;
     border: 1.5px solid #4D0013;
     font-family: 'Orbitron', sans-serif;
+    border-radius: 3px;
 }
 
 .PlaylistSelector button:focus {
@@ -74,4 +76,51 @@
 
 .PlaylistSelector button:active {
     border: 1px solid #4D0013;
+}
+
+@media screen and (max-width: 1024px) {
+  .PlaylistSelector {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .PlaylistSelector h2 {
+    font-size: 24px;
+    height: auto;
+    margin: 20px 0;
+  }
+
+  .PlaylistSelector button {
+    width: 200px;
+    margin: 10px 0;
+  }
+
+  .PlaylistSelector ul {
+    width: 100%;
+    max-width: 500px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .PlaylistSelector {
+    padding: 0.5rem;
+  }
+
+  .PlaylistSelector h2 {
+    font-size: 20px;
+  }
+
+  .PlaylistSelector button {
+    width: 80%;
+    max-width: 300px;
+  }
+
+  .PlaylistSelectorItem {
+    font-size: 16px;
+    padding: 8px 0;
+  }
+
+  .PlaylistSelector h4 {
+    font-size: 18px;
+  }
 }

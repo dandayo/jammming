@@ -79,3 +79,49 @@ h3, h4, p {
   border: 1px solid #FFD700;
   box-shadow: 0px 0px 30px rgba(255, 196, 0, 0.209);
 }
+
+@media screen and (max-width: 1024px) {
+  .Track {
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .Track-information {
+    width: 85%;
+  }
+
+  .Track-information h3 {
+    font-size: 1.2em;
+  }
+
+  .Track-information h4 {
+    font-size: 1em;
+  }
+
+  .Track-information p {
+    font-size: 0.9em;
+  }
+
+  .Track-action {
+    margin: 0;
+    align-self: center;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .Track {
+    padding: 8px 5px;
+  }
+
+  .Track-information {
+    width: 80%;
+    padding-left: 5px;
+  }
+
+  .Track-action {
+    height: 30px;
+    width: 30px;
+    font-size: 20px;
+    min-width: 30px;
+  }
+}
