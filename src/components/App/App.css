@@ -152,7 +152,7 @@ h1 {
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 300px;
-  color: rgba(255, 111, 0, 0.063);
+  color: rgba(255, 111, 0, 0.042);
   white-space: nowrap;
   z-index: -1;
   font-weight: bold;
@@ -162,7 +162,7 @@ h1 {
 
 .content-section::before {
   content: 'JAMMING';
-  top: 25%; /* Верхняя надпись */
+  top: 20%; /* Верхняя надпись */
 }
 
 .content-section::after {
