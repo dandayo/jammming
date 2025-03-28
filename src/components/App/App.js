@@ -160,13 +160,12 @@ const App = () => {
       .catch((error) => {
         console.error('Search failed:', error);
         setIsLoading(false);
-        // You might want to add error state and display it to the user
       });
   };
 
   // Обработчик клика по кнопке логина
   const handleLogin = () => {
-    Spotify.initiateLogin(); // Используем новый метод вместо getAccessToken
+    Spotify.initiateLogin();
   };
 
   return (
@@ -186,9 +185,6 @@ const App = () => {
               <h1>Ja<span className="highlight">mmm</span>ing</h1>
               <h1>Ja<span className="highlight">mmm</span>ing</h1>
               <h1>Ja<span className="highlight">mmm</span>ing</h1>
-              <h1>Ja<span className="highlight">mmm</span>ing</h1>
-              <h1>Ja<span className="highlight">mmm</span>ing</h1>
-              <h1>Ja<span className="highlight">mmm</span>ing</h1>
             </div>
           </div>
           <div className={`content-section ${contentVisible ? 'visible' : ''}`}>
@@ -199,31 +195,33 @@ const App = () => {
               selectedPlaylistId={selectedPlaylistId}
               onCreateNew={createNewPlaylist}
             />
-            {showPlaylistSection && (
-              <>
-                <SearchBar onSearch={search} />
-                <div className="AppPlaylist">
-                  <SearchResults searchResults={searchResults} onAdd={addTrack} />
-                  <div className="Playlists">
-                    <div className="PlaylistNameForm">
-                      <input
-                        type="text"
-                        value={playlistName}
-                        onChange={(e) => updatePlaylistName(e.target.value)}
-                        placeholder="Enter playlist name"
+            <div className={`playlist-section ${showPlaylistSection ? 'visible' : ''}`}>
+              {showPlaylistSection && (
+                <>
+                  <SearchBar onSearch={search} />
+                  <div className="AppPlaylist">
+                    <SearchResults searchResults={searchResults} onAdd={addTrack} />
+                    <div className="Playlists">
+                      <div className="PlaylistNameForm">
+                        <input
+                          type="text"
+                          value={playlistName}
+                          onChange={(e) => updatePlaylistName(e.target.value)}
+                          placeholder="Enter playlist name"
+                        />
+                      </div>
+                      <Playlist
+                        playlistName={playlistName}
+                        playlistTracks={playlistTracks}
+                        onRemove={removeTrack}
+                        onSave={savePlaylist}
+                        buttonText={playlistTracks.length === 0 ? "Delete" : "Save to Spotify"}
                       />
                     </div>
-                    <Playlist
-                      playlistName={playlistName}
-                      playlistTracks={playlistTracks}
-                      onRemove={removeTrack}
-                      onSave={savePlaylist}
-                      buttonText={playlistTracks.length === 0 ? "Delete" : "Save to Spotify"}
-                    />
                   </div>
-                </div>
-              </>
-            )}
+                </>
+              )}
+            </div>
           </div>
         </div>
       )}

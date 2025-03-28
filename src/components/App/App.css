@@ -8,11 +8,7 @@ body {
 }
 
 h1 {
-  margin-top: 40px;
   color: #FFD700;
-  text-align: center;
-  font-size: 50px;
-  width: 100%;
 }
 
 .highlight {
@@ -40,6 +36,18 @@ h1 {
   width: calc(100% - 4rem); 
   gap: 2rem;
   max-width: 1800px;
+}
+
+.playlist-section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  width: 100%;
+}
+
+.playlist-section.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .SearchResults, .Playlists {
@@ -118,7 +126,6 @@ h1 {
 h1 {
   margin: 0;
   padding: 0 20px;
-  color: #FFD700;
   text-align: center;
   font-size: 80px;
   flex-shrink: 0;
@@ -133,7 +140,7 @@ h1 {
     transform: translateX(-50%);
   }
 }
-
+/* Анимаия появления контента */
 .content-section {
   min-height: 100vh;
   width: 100%;
@@ -143,7 +150,7 @@ h1 {
   position: relative;
 }
 
-/* Добавляем фоновые тексты */
+/* background JAMMING */
 .content-section::before,
 .content-section::after,
 .content-section .background-text {
